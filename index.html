@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>My First PWA</title>
+  <meta name="description" content="My first PWA"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="materialize/css/materialize.min.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00897B"/>
+</head>
+<body>
+  <!-- Navigasi -->
+  <nav class="teal lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo" id="logo-container">My Profile</a>
+      <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul class="sidenav" id="nav-mobile"></ul>
+    </div>
+  </nav>
+  <!-- Akhir Navigasi -->
+
+  <!-- Content -->
+  <div class="container" id="body-content">
+    <div class="row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img class="circle resposive-img" src="img/icon.png">
+            <span class="card-title">My Photo</span>
+          </div>
+          <div class="card-content">
+            <p>homep</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Content -->
+
+  <script src="materialize/js/materialize.min.js"></script>
+  <script src="materialize/js/nav.js"></script>
+  <script>
+    // Register Service Worker
+    if("serviceWorker" in navigator) {
+      window.addEventListener("load", function() {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(function() {
+            console.log("Pendaftaran ServiceWorker berhasil");
+          })
+          .catch(function() {
+            console.log("Pendaftaran ServiceWorker gagal");
+          });
+      });
+    } else {
+      console.log("ServiceWorker belum didukung browser ini.");
+    }
+  </script>
+</body>
+</html>
